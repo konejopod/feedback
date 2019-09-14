@@ -1,0 +1,12 @@
+pipeline {
+  agent {
+    docker { image 'mhart/alpine-node:10.16.3' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
+}
