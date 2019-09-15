@@ -1,6 +1,15 @@
 version: "3.7"
 
 services:
+  api:
+    build:
+      context: .
+      dockerfile: api-service.dockerfile
+    ports:
+      - '8080:8080'
+    volumes:
+      - ../api:/api
+
   view:
     build: 
       context: .

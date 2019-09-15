@@ -1,2 +1,6 @@
-# misc
+.vscode/
+.settings/
+
 .DS_Store
+.classpath
+.project
