@@ -6,8 +6,9 @@
 
 - Docker: https://docs.docker.com/install/
 - Docker compose: https://docs.docker.com/compose/install/
-- NodeJS: 
-- JDK11:
+- NodeJS: https://nodejs.org/en/
+  - NVM (optional): https://github.com/nvm-sh/nvm
+- JDK11: 
 
 ### Install
 
@@ -29,4 +30,12 @@
 
 1. Go to the project deploy dir: `$ cd .../feedback/deploy`
 2. Execute: `$ docker-compose up -d`
-3. Access URL: http://localhost
+3. Access view URL: http://localhost
+4. Access API health URL: http://localhost/api/actuator/health
+
+## TODO
+
+1. Setup a Jenkins
+  1.1. Configure Jenkins server
+  1.2. Update deploy/Jenkinsfile
+2. 
