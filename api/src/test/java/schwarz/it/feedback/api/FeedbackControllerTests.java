@@ -23,7 +23,7 @@ public class FeedbackControllerTests {
 
 	@Test
 	public void test() throws Exception {
-		this.mvc.perform(get("/api/test")).andExpect(status().isOk()).andExpect(content().string("OK"));
+		this.mvc.perform(get("/test")).andExpect(status().isOk()).andExpect(content().string("OK"));
 	}
 
 }

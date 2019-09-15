@@ -4,13 +4,20 @@
 
 ### Requirements
 
-- Docker: 
-- Docker compose:
-- NodeJS:
+- Docker: https://docs.docker.com/install/
+- Docker compose: https://docs.docker.com/compose/install/
+- NodeJS: 
+- JDK11:
 
 ### Install
 
-1. Clone the project: `$ git clone ...`
+1. Clone the project: `$ git clone https://github.com/peppelin/feedback.git`
+
+#### Install API
+
+1. Go to the project API dir: `$ cd .../feedback/api`
+2. Install dependencies with: `$ ./gradlew build`
+3. Build the jar file with: `$ ./gradlew jar`
 
 #### Install View
 
