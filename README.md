@@ -8,7 +8,7 @@
 - Docker compose: https://docs.docker.com/compose/install/
 - NodeJS: https://nodejs.org/en/
   - NVM (optional): https://github.com/nvm-sh/nvm
-- JDK11: 
+- JDK11: https://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 ### Install
 
@@ -36,6 +36,6 @@
 ## TODO
 
 1. Setup a Jenkins
-  1.1. Configure Jenkins server
-  1.2. Update deploy/Jenkinsfile
+   1.1. Configure Jenkins server
+   1.2. Update deploy/Jenkinsfile
 2. 
