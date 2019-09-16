@@ -1,5 +1,5 @@
 export default theme => ({
-  App: {
+  app: {
     margin: '0 auto',
     maxWidth: theme.constraints.maxWidth,
   },

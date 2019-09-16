@@ -8,6 +8,10 @@ const constants = {
   SET_LOADER: 'SET_LOADER',
   CHANGE_LANGUAGE: 'CHANGE_LANGUAGE',
 
+  // # ERROR CODES
+  ERROR_USER_UNAUTHORIZED: 'UserUnautohrizedException',
+  ERROR_USER_NOT_CONFIRMED: 'UserNotConfirmedException'
+
 };
 
 export default constants;

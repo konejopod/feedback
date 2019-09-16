@@ -1,4 +1,4 @@
-## Feedback Tool
+## Feedback App
 
 ## How to install
 

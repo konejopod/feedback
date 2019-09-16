@@ -5,7 +5,7 @@ import constants from "./constants";
 const defaultState = {
   user: null, 
   loading: false, 
-  notify: false,
+  language: 'en-US',
 };
 
 export const redux = (state, action) => {
@@ -23,6 +23,5 @@ export const redux = (state, action) => {
   }
 };
 
-// const initialState = loadLocalStorage('state');
 const reduxStore = (initialState) => createStore(redux, { ...defaultState, ...initialState });
 export default reduxStore;

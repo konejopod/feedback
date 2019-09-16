@@ -12,7 +12,7 @@ export default createMuiTheme({
     useNextVariants: true,
   },
   constraints: {
-    maxWidth: 880,
+    maxWidth: 640,
   },
   palette: {
     primary: {
