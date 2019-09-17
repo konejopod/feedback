@@ -37,13 +37,13 @@ export default class AuthService {
   authenticate(username, password) {
     if (process.env.NODE_ENV !== 'production') {
       let mockUser = require('../etc/mock-user.json')
-      if (username === mockUser.username && password === mockUser.password) {
+      if (username === mockUser.username || username === mockUser.email) { // TODO && password === mockUser.password) {
         return this._parseUser(mockUser); 
       }
     } else {
       // TODO Change to a real auth, ...
       let mockUser = require('../etc/mock-user.json')
-      if (username === mockUser.username && password === mockUser.password) { 
+      if (username === mockUser.username || username === mockUser.email) { // TODO && password === mockUser.password) {
         return this._parseUser(mockUser); 
       }
     }
