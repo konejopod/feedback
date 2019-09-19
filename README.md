@@ -26,16 +26,6 @@
 2. Install dependencies with: `$ npm i`
 3. Build the project with: `$ npm run build`
 
-#### Configure MongoDB
-
-1. Configure into the host both **ENV VARS**
- * $MONGO_USER
- * $MONGO_PWD
- ```
- export MONGO_USER=myUsername
- export MONGO_PWD=myPassword
- ```
-
 ## How to run
 
 1. Go to the project deploy dir: `$ cd .../feedback/deploy`
