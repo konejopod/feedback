@@ -39,7 +39,9 @@ class App extends React.Component {
     return (
       <div className={classes.app}>
         <MainHeaderContainer />
-        {children}
+        <div className={classes.content}>
+          {children}
+        </div>
         <Loader loading={state.loading} />
       </div>
     );

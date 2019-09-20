@@ -13,7 +13,7 @@ import UserMenuContainer from '../user-menu/UserMenuContainer';
 
 const useStyles = makeStyles(styles);
 
-const MainHeader = () => {
+const MainHeader = ({ user }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -21,6 +21,9 @@ const MainHeader = () => {
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.flex}>
             <FormattedMessage id={'App.name'} description="Title" defaultMessage="Feedback" />
+          </Typography>
+          <Typography>
+            {user && user.username}
           </Typography>
           <UserMenuContainer />  
         </Toolbar>

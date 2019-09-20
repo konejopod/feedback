@@ -15,8 +15,11 @@ const connection = connect(state => ({ state }), dispatch => ({ dispatch }));
 class MainHeaderContainer extends React.Component {
   
   render() {
+    const { state } = this.props;
     return (
-      <MainHeader />
+      <MainHeader 
+        user={state.user}
+      />
     );
   }
 }

@@ -2,8 +2,14 @@
   "language": "en-US",
   
   "App.name": "Feedback App",
-
+  
   "Home.greetings": "Wellcome to the Feedback App!",
+  "Home.code": "Type the code to give your feedback",
+  "Home.createNewFeedback": "Create a new feedback request",
+  "Home.codeRequiredMsg": "Please, inform the feedback code.",
+  "Home.sendBtn": "Send",
+
+  "Profile.greetings": "Profile page",
 
   "Dialog.ok": "Ok",
   "Dialog.close": "Close",
@@ -11,9 +17,9 @@
   "SelectDialog.defTitle": "Select",
   "MessageDialog.defTitle": "Message",
 
-  "Auth.username": "Inform you e-mail",
+  "Auth.username": "Type you username or e-mail",
   "Auth.password": "Password (min. 6 digits and 1 symbol)",
-  "Auth.newPassword": "Inform the new password",
+  "Auth.newPassword": "Type the new password",
   "Auth.phoneNumber": "Phone (opcional)",
   "Auth.code": "Code (check your inbox)",
   "Auth.sendBtn": "Send",
@@ -29,8 +35,9 @@
   "Auth.newPwdTitle": "New password",
   "Auth.verifyMsg": "The verification code was sent to your e-mail.",
   "Auth.verifyOkMsg": "Account validated.",
+  "Auth.signInRequired": "(sign in required)",
   "Auth.verifyErrMsg": "Wrong verification code. Please, verify and try again.",
-  "Auth.signInErrMsg": "Authentication failed, check the informed data.",
+  "Auth.signInErrMsg": "Authentication failed, check username/password.",
   "Auth.signUpErrMsg": "Failed on creating your account. Please, check the informed data and try again.",
   "Auth.resetPwdMsg": "Type in you e-mail so we can send you the verification code.",
   "Auth.resetPwdErrMsg": "Failed sending the verification code. Please, check the informed data and try again.",
