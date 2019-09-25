@@ -4,20 +4,16 @@ services:
   api:
     build:
       context: .
-      dockerfile: api-service.dockerfile
+      dockerfile: api.dockerfile
     ports:
-      - '3000:3000'    
-    volumes:
-      - ../api:/api
+      - '5000:5000'    
 
   view:
     build: 
       context: .
-      dockerfile: view-app.dockerfile
+      dockerfile: view.dockerfile
     ports:
-      - '5000:5000'
-    volumes:
-      - ../view:/app
+      - '3000:3000'
 
   nginx:
     image: nginx:latest
@@ -36,9 +32,8 @@ services:
   #     MONGODB_DATABASE: "${MONGO_DB}"
   #     MONGODB_PASS: "${MONGO_DB}"
   #   volumes:
-  #     - ../mongo/data:/data/db
+  #     - ../mongo:/data/db
 
-# networks: 
-#   default:
-#     external:
-#       name: devops_network
+networks: 
+  default:
+    name: devops_network

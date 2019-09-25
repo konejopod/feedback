@@ -27,6 +27,7 @@
 3. Build the project with: `$ npm run build`
 
 #### Conffigure MongoDB
+
 1. Export the two ENV VARS needed ffor the docker-compose to run
 ```
 export MONGO_USER=myUser
