@@ -13,6 +13,10 @@ coverage
 # production
 build
 
+# mongodb -----------------------------------------------------
+/docker/local/mongo/data/*
+!/docker/local/mongo/data/.gitkeep
+
 # misc --------------------------------------------------------
 .DS_Store
 .vscode/
