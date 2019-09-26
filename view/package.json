@@ -1,7 +1,22 @@
 {
   "name": "feedback-view",
   "version": "0.1.0",
-  "private": true,
+  "description": "",
+  "engines": {
+    "node": "12.10.0",
+    "npm": "6.10.3"
+  },
+  "scripts": {
+    "clean": "rm -rf build node_modules && npm i",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "package": "npm run clean && npm run build"
+  },
+  "keywords": [],
+  "author": "Adyb Sampaio",
+  "license": "ISC",
   "dependencies": {
     "@date-io/moment": "^1.3.11",
     "@formatjs/intl-pluralrules": "^1.1.4",
@@ -18,12 +33,6 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "redux": "^4.0.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

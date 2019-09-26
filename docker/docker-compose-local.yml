@@ -1,0 +1,75 @@
+version: '3.5'
+
+services:
+
+  # mongodb
+  mongodb:
+    image: mongo:4.2.0
+    container_name: fb_mongodb
+    user: "${UID}:${GID}"
+    env_file: 
+      - ./local/.env
+    volumes:
+      - ./local/mongo/data:/data/db:rw
+    restart: unless-stopped
+    networks:
+      - fb_network
+
+  # api app    
+  api:
+    build:
+      context: .
+      dockerfile: api-app.dockerfile
+    container_name: fb_api
+    user: "${UID}:${GID}"
+    env_file: 
+      - ./local/.env
+    depends_on:
+      - mongodb
+    ports:
+      - "5100:5100"
+    volumes:
+      - ../api:/app:rw
+    restart: unless-stopped
+    networks:
+      - fb_network
+
+  # view app
+  view:
+    build:
+      context: .
+      dockerfile: view-app.dockerfile
+    container_name: fb_view
+    user: "${UID}:${GID}"
+    env_file: 
+      - ./local/.env
+    depends_on:
+      - api
+    ports:
+      - "3000:5000"
+    volumes:
+      - ../view:/app:rw
+    restart: unless-stopped
+    networks:
+      - fb_network
+  
+  # nginx
+  nginx:
+    image: nginx:1.17.4
+    container_name: fb_nginx
+    #user: "${UID}:${GID}" # Strange permission problem
+    env_file:
+      - ./local/.env
+    depends_on:
+      - api
+      - view
+    ports:
+      - "80:80"
+    volumes:
+      - ./local/nginx/config/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+    networks:
+      - fb_network
+
+networks: 
+  fb_network:

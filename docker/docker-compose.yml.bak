@@ -1,0 +1,55 @@
+version: '3.5'
+
+services:
+
+  # api service
+  api_db:
+    image: mongo:4.2.0
+    container_name: fb_mongodb
+    user: "${UID}:${GID}"
+    env_file: 
+      - ./local/.env
+    volumes:
+      - ./local/mongo/data:/data/db:rw
+    restart: unless-stopped
+    networks:
+      - fb_network
+  api:
+    build:
+      context: .
+      dockerfile: app-nodejs-build.dockerfile
+      #args:
+      #  TGZ_FILE: reco-view.tgz
+    container_name: fb_api
+    user: "${UID}:${GID}"
+    depends_on:
+      - api_db
+    ports:
+      - "5100:5100"
+    volumes:
+      - ../api:/app:rw
+    restart: unless-stopped
+    networks:
+      - fb_network
+
+  #view:
+  #  build: 
+  #    context: .
+  #    dockerfile: view.dockerfile
+  #  ports:
+  #    - '5000:5000'
+  #  volumes:
+  #    - ../view:/app
+
+  #nginx:
+  #  image: nginx:latest
+  #  ports:
+  #    - '80:80'
+  #  depends_on:
+  #    - view
+  #  volumes:
+  #    - ../config/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  
+
+networks: 
+  fb_network:

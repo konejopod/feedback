@@ -48,3 +48,73 @@ export MONGO_DB=myDB
    1.1. Configure Jenkins server
    1.2. Update deploy/Jenkinsfile
 2. 
+
+
+
+
+
+
+
+--- TEMPORAL ---
+
+a) Project 'api'
+
+// Run in local
+$ cd api
+$ npm run clean
+$ npm run start
+
+// Generate artifact
+$ npm run package
+
+// Check
+- http://localhost:5100
+- http://localhost:5100/api/feedback
+
+b) Project 'view'
+
+// Run in local
+$ cd view
+$ npm run clean
+$ npm run start
+
+// Generate artifact
+
+$ npm run package
+
+// Check
+
+- http://localhost:3000
+
+
+--- TEMPORAL ---
+
+a) Local environment
+
+$ cd docker
+$ export UID=$(id -u)
+$ export GID=$(id -g)
+$ docker-compose --compatibility -f docker-compose-local.yml up -d --force-recreate
+$ docker-compose -f docker-compose-local.yml down
+
+a.1) Check mongodb
+
+$ docker exec -it fb_mongodb /bin/bash
+/# mongo -u admin -p secret
+...
+> show dbs
+...
+> use fb_mdb
+...
+> db.people.save({ firstname: "Nic", lastname: "Raboy" })
+...
+> db.people.find({ firstname: "Nic" })
+...
+> exit
+/# exit
+
+a.2) Check nginx
+
+- http://localhost
+- http://localhost/api
+- http://localhost/api/feedback
