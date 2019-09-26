@@ -80,8 +80,7 @@ $ npm run start
 a) local environment
 
 $ cd docker
-$ export UID=$(id -u)
-$ export GID=$(id -g)
+$ export UID=$(id -u) // Optional
 $ docker-compose --compatibility -f docker-compose-local.yml up -d --force-recreate
 $ docker-compose -f docker-compose-local.yml down
 
