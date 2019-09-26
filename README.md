@@ -59,28 +59,41 @@ export MONGO_DB=myDB
 
 a) Project 'api'
 
+// Run in local
 $ cd api
-$ npm i
+$ npm run clean
 $ npm run start
 
+// Generate artifact
+$ npm run package
+
+// Check
 - http://localhost:5100
 - http://localhost:5100/api/feedback
 
 b) Project 'view'
 
+// Run in local
 $ cd view
-$ npm i
+$ npm run clean
 $ npm run start
+
+// Generate artifact
+
+$ npm run package
+
+// Check
 
 - http://localhost:3000
 
 
 --- TEMPORAL ---
 
-a) local environment
+a) Local environment
 
 $ cd docker
-$ export UID=$(id -u) // Optional
+$ export UID=$(id -u)
+$ export GID=$(id -g)
 $ docker-compose --compatibility -f docker-compose-local.yml up -d --force-recreate
 $ docker-compose -f docker-compose-local.yml down
 
@@ -100,3 +113,8 @@ $ docker exec -it fb_mongodb /bin/bash
 > exit
 /# exit
 
+a.2) Check nginx
+
+- http://localhost
+- http://localhost/api
+- http://localhost/api/feedback
