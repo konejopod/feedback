@@ -1,104 +1,71 @@
-## Feedback App
+# Feedback App
+
+@author Banzai DevOps
+@date 2019-09-28
 
 ## How to install
 
 ### Requirements
 
-- Docker: https://docs.docker.com/install/
-- Docker compose: https://docs.docker.com/compose/install/
-- NodeJS: https://nodejs.org/en/
-  - NVM (optional): https://github.com/nvm-sh/nvm
-- JDK11: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+- docker: https://docs.docker.com/install/
+- docker compose: https://docs.docker.com/compose/install/
+- nvm: https://github.com/nvm-sh/nvm
+- nodeJS: https://nodejs.org/en/
+    - Install by nvm
+    - Version to install: 12.10.0
 
 ### Install
 
-1. Clone the project: `$ git clone https://github.com/peppelin/feedback.git`
+1. Clone the project: 
 
-#### Install API
-
-1. Go to the project API dir: `$ cd .../feedback/api`
-2. Install dependencies with: `$ ./gradlew build`
-3. Build the jar file with: `$ ./gradlew jar`
-
-#### Install View
-
-1. Go to the project view dir: `$ cd .../feedback/view`
-2. Install dependencies with: `$ npm i`
-3. Build the project with: `$ npm run build`
-
-#### Conffigure MongoDB
-
-1. Export the two ENV VARS needed ffor the docker-compose to run
-```
-export MONGO_USER=myUser
-export MONGO_PWD=myPwd
-export MONGO_DB=myDB
+```bash
+$ git clone https://github.com/peppelin/feedback.git
 ```
 
-## How to run
+2. Install and run the api app:
 
-1. Go to the project deploy dir: `$ cd .../feedback/deploy`
-2. Execute: `$ docker-compose up -d`
-3. Access view URL: http://localhost
-4. Access API health URL: http://localhost/api/actuator/health
-
-## TODO
-
-1. Setup a Jenkins
-   1.1. Configure Jenkins server
-   1.2. Update deploy/Jenkinsfile
-2. 
-
-
-
-
-
-
-
---- TEMPORAL ---
-
-a) Project 'api'
-
-// Run in local
+```bash
 $ cd api
 $ npm run clean
 $ npm run start
+```
 
-// Generate artifact
-$ npm run package
+**Note: You must start the mongodb docker container.**
 
-// Check
-- http://localhost:5100
-- http://localhost:5100/api/feedback
+3. Install and run the view app:
 
-b) Project 'view'
-
-// Run in local
+```bash
 $ cd view
 $ npm run clean
 $ npm run start
+```
 
-// Generate artifact
+## Run in local environment to develop
 
-$ npm run package
+1. Local environment clean:
 
-// Check
+```bash
+$ cd local
+$ npm run clean
+```
 
-- http://localhost:3000
+2. Local environment start:
 
+```bash
+$ cd local
+$ npm run start
+```
 
---- TEMPORAL ---
+3. Start only mongodb:
 
-a) Local environment
+```bash
+$ cd local
+$ npm run mongodb:start
+```
 
-$ cd docker
-$ export UID=$(id -u)
-$ export GID=$(id -g)
-$ docker-compose --compatibility -f docker-compose-local.yml up -d --force-recreate
-$ docker-compose -f docker-compose-local.yml down
+4. Check mongodb:
 
-a.1) Check mongodb
-
+```bash
 $ docker exec -it fb_mongodb /bin/bash
 /# mongo -u admin -p secret
 ...
@@ -106,15 +73,44 @@ $ docker exec -it fb_mongodb /bin/bash
 ...
 > use fb_mdb
 ...
+> show collections
+...
 > db.people.save({ firstname: "Nic", lastname: "Raboy" })
+...
+> db.people.find()
 ...
 > db.people.find({ firstname: "Nic" })
 ...
 > exit
 /# exit
+```
 
-a.2) Check nginx
+5. Check apps started:
+
+- http://localhost:5100
+- http://localhost:5100/api/feedback
+- http://localhost:3000
+
+
+6. Check nginx:
 
 - http://localhost
 - http://localhost/api
 - http://localhost/api/feedback
+
+7. Local environment stop:
+
+```bash
+$ cd local
+$ npm run stop
+```
+
+## Package and deploy
+
+--- TBD ---
+
+$ cd api
+$ npm run package
+
+$ cd view
+$ npm run package
