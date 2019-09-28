@@ -1,0 +1,26 @@
+{
+  "name": "feedback-local",
+  "version": "0.1.0",
+  "description": "",
+  "engines": {
+    "node": "12.10.0",
+    "npm": ">=6.10.3"
+  },
+  "scripts": {
+    "clean": "echo ': Local environment:clean' && rm -rf ./node_modules ../api/node_modules ../view/node_modules && npm cache verify && docker system prune -f -a",
+    "init": "echo ': Local environment:init' && [ -d ./node_modules ] && echo \"Skip ...\" || npm i",
+    "install:api:exec": "cd ../api && npm i",
+    "install:api": "echo ':: Install api app' && [ -d ../api/node_modules ] && echo \"Skip ...\" || npm run install:api:exec",
+    "install:view:exec": "cd ../view && npm i",
+    "install:view": "echo ':: Install view app' && [ -d ../view/node_modules ] && echo \"Skip ...\" || npm run install:view:exec",
+    "docker:list": "echo ':: List docker containers' && docker ps | grep 'fb_' || echo 'No fb_ containers'",
+    "docker:start": "echo ':: Generate and start docker containers' && export UID=$(id -u) && export GID=$(id -g) && docker-compose --compatibility up -d --force-recreate",
+    "mongodb:start": "echo ':: Start local mongodb' && export UID=$(id -u) && export GID=$(id -g) && docker-compose --compatibility up -d --force-recreate mongodb",
+    "docker:stop": "echo ':: Stop docker containers' && export UID=$(id -u) && export GID=$(id -g) && docker-compose down",
+    "end": "echo ': Done'",
+    "start": "npm run init && npm run install:api && npm run install:view && npm run docker:start && npm run docker:list && npm run end",
+    "stop": "npm run docker:stop && npm run docker:list && npm run end"
+  },
+  "author": "Carles Clavero",
+  "license": "ISC"
+}
