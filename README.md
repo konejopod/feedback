@@ -114,3 +114,7 @@ $ npm run package
 
 $ cd view
 $ npm run package
+
+--- TBD ---
+
+- https://medium.com/platformer-blog/ci-cd-with-gke-and-google-cloud-build-98a797ecf346

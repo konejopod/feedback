@@ -17,6 +17,9 @@ build
 /local/mongo/data/*
 !/local/mongo/data/.gitkeep
 
+# gcp build ---------------------------------------------------
+!/gcp-build/build
+
 # misc --------------------------------------------------------
 .DS_Store
 .vscode/
