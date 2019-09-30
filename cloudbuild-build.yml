@@ -1,0 +1,29 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Building docker api app image'
+    env: 
+      - 'APP_PORT=5100'
+    #dir: string
+    #waitFor: string
+    #entrypoint: string
+    #secretEnv: string
+    #volumes: object(Volume)
+    #timeout: string (Duration format)
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/api', '-f', './gcp-build/build/api-app.dockerfile', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Building docker view app image'
+    env: 
+      - 'APP_PORT=3000'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/view', '-f', './gcp-build/build/view-app.dockerfile', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Building docker mongodb image'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/mongodb', '-f', './gcp-build/build/mongodb.dockerfile', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Building docker nginx image'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/nginx', '-f', './gcp-build/build/nginx.dockerfile', '.']
+images: [
+  'gcr.io/$PROJECT_ID/api:latest',
+  'gcr.io/$PROJECT_ID/view:latest',
+  'gcr.io/$PROJECT_ID/mongodb:latest',
+  'gcr.io/$PROJECT_ID/nginx:latest'
+]
