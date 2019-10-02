@@ -10,4 +10,4 @@ const feedbackSchema = new Schema({
 });
 
 // Register schemas
-mongoose.model('Feedback', feedbackSchema);
+module.exports = mongoose.model('Feedback', feedbackSchema);

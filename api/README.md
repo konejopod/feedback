@@ -10,15 +10,15 @@
 2. API feedback get:
 
 ```bash
-$ curl -X GET http://localhost:5100/api/feedback
+$ curl -v http://localhost:5100/api/feedback
 []
 ```
 
 3. API feedback post:
 
 ```bash
-$ curl -X POST http://localhost:5100/api/feedback -d "{name:\"Bob Esponja\",description:\"Desc 1\"}" 
-{"error":false,"feedback":{"_id":"5d8f3b83d3bae76b64ce538b","__v":0}}
+$ curl -X POST -H "Content-Type: application/json" http://localhost:5100/api/feedback -d "{\"name\":\"Bob Esponja\",\"description\":\"Desc 1\"}" 
+{"error":{"message":{"_id":"5d9512c730649d6211c4cc8f","name":"Bob Esponja","description":"Desc 1","__v":0}}}
 ```
 
 **Note: Validate with a get.**
@@ -26,8 +26,8 @@ $ curl -X POST http://localhost:5100/api/feedback -d "{name:\"Bob Esponja\",desc
 4. API feedback put:
 
 ```bash
-$ curl -X PUT http://localhost:5100/api/feedback/5d8f3b83d3bae76b64ce538b -d "{name:\"Patricio Star\"}" 
-{"error":false,"feedback":{"_id":"5d8f3b83d3bae76b64ce538b","__v":0}}
+$ curl -X PUT -H "Content-Type: application/json" http://localhost:5100/api/feedback -d "{\"name\":\"Patricio Star\",\"description\":\"Desc 2\"}" 
+{"error":{"message":{"_id":"5d9512c730649d6211c4cc8f","name":"Patricio Star","description":"Desc 2","__v":0}}}
 ```
 
 **Note: Validate with a get.**

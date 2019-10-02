@@ -9,6 +9,8 @@ services:
     user: "${USERID}:${GROUPID}"
     env_file: 
       - ../api/.env-local
+    ports:
+      - "27017:27017"
     volumes:
       - ./mongo/data:/data/db:rw
     restart: unless-stopped
