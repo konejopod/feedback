@@ -14,8 +14,8 @@ coverage
 build
 
 # mongodb -----------------------------------------------------
-/docker/local/mongo/data/*
-!/docker/local/mongo/data/.gitkeep
+/local/mongo/data/*
+!/local/mongo/data/.gitkeep
 
 # misc --------------------------------------------------------
 .DS_Store

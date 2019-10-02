@@ -8,7 +8,13 @@ services:
     container_name: fb_mongodb
     user: "${UID}:${GID}"
     env_file: 
+<<<<<<< Updated upstream:docker/docker-compose-local.yml
       - ./local/.env
+=======
+      - ../api/.env-local
+    ports:
+      - "27017:27017"
+>>>>>>> Stashed changes:local/docker-compose.yml
     volumes:
       - ./local/mongo/data:/data/db:rw
     restart: unless-stopped
