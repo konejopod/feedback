@@ -6,7 +6,7 @@ services:
   mongodb:
     image: mongo:4.2.0
     container_name: fb_mongodb
-    user: "${UID}:${GID}"
+    user: "${USERID}:${GROUPID}"
     env_file: 
       - ../api/.env-local
     volumes:
@@ -24,7 +24,7 @@ services:
       args:
         APP_PORT: 5100
     container_name: fb_api
-    user: "${UID}:${GID}"
+    user: "${USERID}:${GROUPID}"
     env_file: 
       - ../api/.env-local
     depends_on:
@@ -46,7 +46,7 @@ services:
       args:
         APP_PORT: 3000
     container_name: fb_view
-    user: "${UID}:${GID}"
+    user: "${USERID}:${GROUPID}"
     env_file: 
       - ../view/.env-local
     depends_on:
@@ -63,7 +63,7 @@ services:
   nginx:
     image: nginx:1.17.4
     container_name: fb_nginx
-    #user: "${UID}:${GID}" # We need access to /etc/nginx/conf.d
+    #user: "${USERID}:${GROUPID}" # We need access to /etc/nginx/conf.d
     depends_on:
       - api
       - view

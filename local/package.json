@@ -14,9 +14,9 @@
     "install:view:exec": "cd ../view && npm i",
     "install:view": "echo ':: Install view app' && [ -d ../view/node_modules ] && echo \"Skip ...\" || npm run install:view:exec",
     "docker:list": "echo ':: List docker containers' && docker ps | grep 'fb_' || echo 'No fb_ containers'",
-    "docker:start": "echo ':: Generate and start docker containers' && export UID=$(id -u) && export GID=$(id -g) && docker-compose --compatibility up -d --force-recreate",
-    "mongodb:start": "echo ':: Start local mongodb' && export UID=$(id -u) && export GID=$(id -g) && docker-compose --compatibility up -d --force-recreate mongodb",
-    "docker:stop": "echo ':: Stop docker containers' && export UID=$(id -u) && export GID=$(id -g) && docker-compose down",
+    "docker:start": "echo ':: Generate and start docker containers' && export USERID=$(id -u) && export GROUPID=$(id -g) && docker-compose --compatibility up -d --force-recreate",
+    "mongodb:start": "echo ':: Start local mongodb' && export USERID=$(id -u) && export GROUPID=$(id -g) && docker-compose --compatibility up -d --force-recreate mongodb",
+    "docker:stop": "echo ':: Stop docker containers' && export USERID=$(id -u) && export GROUPID=$(id -g) && docker-compose down",
     "end": "echo ': Done'",
     "start": "npm run init && npm run install:api && npm run install:view && npm run docker:start && npm run docker:list && npm run end",
     "stop": "npm run docker:stop && npm run docker:list && npm run end"
