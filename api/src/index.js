@@ -28,6 +28,7 @@ const app = express();
 app.use(express.json());
 
 // Import API routes 
+require('./routes/auth-routes')(app);
 require('./routes/feedback-routes')(app);
 
 // Start app instance
