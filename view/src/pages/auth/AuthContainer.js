@@ -90,7 +90,7 @@ class AuthContainer extends Component {
     if (!this._validate(['username', 'password'])) return;
     dispatch({ type: constants.SET_LOADER, loading: true });
     try {
-      const user = this.authService.authenticate(this.state.username, this.state.password);
+      const user = await this.authService.authenticate(this.state.username, this.state.password);
       dispatch({ type: constants.LOGIN, user });
       history.push('/');
     } catch (error) {
@@ -112,6 +112,7 @@ class AuthContainer extends Component {
           }
         });
       }
+      dispatch({ type: constants.LOGOUT });
     }
     dispatch({ type: constants.SET_LOADER, loading: false });
   }

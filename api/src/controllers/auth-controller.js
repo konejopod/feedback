@@ -1,8 +1,33 @@
+const HttpStatus = require('http-status-codes');
+
 const User = require('../models/user');
 
 module.exports = {
 
-  create: content => { 
+  signIn: credentials => { 
+    const { username, password } = credentials;
+    return User.findOne({ username }).then((result, error) => {
+      if (error) {
+        return Promise.reject({ 
+          message: error, 
+          code: HttpStatus.INTERNAL_SERVER_ERROR 
+        });
+      }
+      if (!result || result.password !== password) {
+        return Promise.reject({ 
+          message: 'Bad credentials', 
+          code: HttpStatus.UNAUTHORIZED, 
+        });
+      }
+      return Promise.resolve({ 
+        message: 'SignIn success', 
+        code: HttpStatus.CREATED,
+        content: result 
+      });
+    });
+  },
+    
+  signUp: content => { 
     const model = new User(content);
 		return model.save().then((result, error) => {
       if (error) return Promise.reject({ message: error });
