@@ -11,7 +11,7 @@ appConfig.loadEnvironment();
 // Connect to mongodb
 console.debug('\n: Connecting to mongoDB: ' + process.env.MONGODB_URI + '\n');
 mongoose.connect(process.env.MONGODB_URI, {
-		auth: {authSource: 'admin'},
+		auth: { authSource: 'admin' },
    	user: process.env.MONGO_INITDB_ROOT_USERNAME,
 		pass: process.env.MONGO_INITDB_ROOT_PASSWORD,
 		useNewUrlParser: true,

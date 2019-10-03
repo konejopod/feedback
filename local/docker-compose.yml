@@ -16,6 +16,12 @@ services:
     restart: unless-stopped
     networks:
       - fb_network
+    # Image does not contain curl
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:27017"]
+    #   interval: 5s
+    #   timeout: 10s
+    #   retries: 3
 
   # api app    
   api:
