@@ -3,11 +3,8 @@
   
   "App.name": "Feedback App",
   
-  "Home.greetings": "Wellcome to the Feedback App!",
-  "Home.code": "Type the code to give your feedback",
-  "Home.createNewFeedback": "Create a new feedback request",
-  "Home.codeRequiredMsg": "Please, inform the feedback code.",
-  "Home.sendBtn": "Send",
+  "Home.greetings": "Wellcome to the Feedback App!",  
+  "Home.requestFeedback": "Create a new feedback request",
 
   "Profile.greetings": "Profile page",
 
@@ -50,10 +47,14 @@
   "UserMenu.profile": "Profile",
   "UserMenu.logout": "Logout",
   "UserMenu.login": "Login",
+  
+  "GiveFeedback.code": "Feedback code",
+  "GiveFeedback.codeRequiredMsg": "Please, inform the feedback code.",
+  "GiveFeedback.sendBtn": "Send",
 
-  "Feedback.field1": "Competencias 1",
-  "Feedback.field2": "Competencias 2",
-  "Feedback.field3": "Competencias 3",
-  "Feedback.field4": "Competencias 4",
-  "Feedback.field5": "Competencias 5"
+  "Feedback.field1": "Nonon no nononon non 1",
+  "Feedback.field2": "Field 2",
+  "Feedback.field3": "Field 3",
+  "Feedback.field4": "Field 4",
+  "Feedback.field5": "Field 5"
 }

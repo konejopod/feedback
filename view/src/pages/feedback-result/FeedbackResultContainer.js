@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { injectIntl } from 'react-intl';
 
-import NewFeedback from './NewFeedback';
+import FeedbackResult from './FeedbackResult';
 
 const propTypes = {
   state: PropTypes.object.isRequired,
@@ -14,17 +14,19 @@ const connection = connect(
   dispatch => ({ dispatch })
 );
 
-class NewFeedbackContainer extends React.Component {
+class FeedbackResultContainer extends React.Component {
   
   render() {
-    const { intl } = this.props;
+    const { intl, state, match } = this.props;
     return (
-      <NewFeedback
+      <FeedbackResult
         intl={intl}
+        code={match.params.feedbackCode}
+        feedback={state.feedback}
       />
     );
   }
 }
-NewFeedbackContainer.propTypes = propTypes;
+FeedbackResultContainer.propTypes = propTypes;
 
-export default injectIntl(connection(NewFeedbackContainer));
+export default injectIntl(connection(FeedbackResultContainer));

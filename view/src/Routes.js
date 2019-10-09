@@ -4,8 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import HomeContainer from './pages/home/HomeContainer';
 import AuthContainer from './pages/auth/AuthContainer';
 import ProfileContainer from './pages/profile/ProfileContainer';
-import NewFeedbackContainer from './pages/new-feedback/NewFeedbackContainer';
-import ReplyFeedbackContainer from './pages/reply-feedback/ReplyFeedbackContainer';
+import GiveFeedbackContainer from './pages/give-feedback/GiveFeedbackContainer';
+import FeedbackResultContainer from './pages/feedback-result/FeedbackResultContainer';
 
 const Routes = () => {
   return (
@@ -13,7 +13,8 @@ const Routes = () => {
       <Route exact path='/' component={HomeContainer} />
       <Route path='/login' component={AuthContainer} />
       <Route path='/profile' component={ProfileContainer} />
-      <Route path='/reply-feedback/:feedbackCode' component={ReplyFeedbackContainer} />
+      <Route path='/give-feedback/:feedbackCode' component={GiveFeedbackContainer} />
+      <Route path='/feedback-result/:feedbackCode' component={FeedbackResultContainer} />
     </Switch>
   );
 }
