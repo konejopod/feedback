@@ -49,7 +49,7 @@ const GiveFeedback = ({
           onChange={(evt) => onChange('username', evt.target.value)}
         />
         <div className={classes.stars}>
-          { [...Array(5).keys()].map(v => <Star key={v} color={feedback.total > v ? 'disabled' : 'inherit'} />) }
+          { [...Array(5).keys()].reverse().map(v => <Star key={v} color={feedback.total > v ? 'disabled' : 'inherit'} />) }
         </div>
         <Typography className={classes.label}>
           {intl.formatMessage({id:'Feedback.field1'})}
