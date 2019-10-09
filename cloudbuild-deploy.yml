@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Deploying app to gcp / vm-feedback'
+    args:
+      - compute
+      - scp
+      - --recurse
+      - vm-feedback:~/tmp-compose.yml
+      - ./gcp-build/deploy/docker-compose.yml
+      
