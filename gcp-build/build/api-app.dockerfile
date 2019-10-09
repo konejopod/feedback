@@ -19,4 +19,4 @@ RUN rm -rf .env-local README.md && \
 
 RUN npm i
 
-CMD ["npm", "run", "start"] 
+CMD ["npm", "run", "start-prod"] 

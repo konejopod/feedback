@@ -11,6 +11,7 @@
 		"clean": "rm -rf build node_modules && npm i",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "export NODE_ENV=local && node src/index.js",
+		"start-prod": "node src/index.js",
 		"package": "npm run clean && mkdir -p build && npm pack && mv *.tgz build"
 	},
 	"files": [
