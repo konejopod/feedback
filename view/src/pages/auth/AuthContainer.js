@@ -143,7 +143,7 @@ class AuthContainer extends Component {
     if (!this._validate(['username', 'password'])) return;
     dispatch({ type: constants.SET_LOADER, loading: true });
     try {
-      const user = this.authService.signUp(this.state.username, this.state.password, this.state.email, this.state.phoneNumber);      
+      const user = await this.authService.signUp(this.state.username, this.state.password, this.state.email, this.state.phoneNumber);      
       // TODO Temporary
       dispatch({ type: constants.LOGIN, user });
       this.setState({

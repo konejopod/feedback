@@ -56,7 +56,8 @@ export default class AuthService {
       // TODO Make emailVerified dinamic
       emailVerified: true,
     };
-    const user = await axios.post('/api/auth/signUp', newUser);
+    const response = await axios.post('/api/auth/signUp', newUser);
+    const { user } = response.data;
     return user; 
   }
 
