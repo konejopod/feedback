@@ -6,15 +6,14 @@ RUN apk update && \
 	rm /var/cache/apk/*
 
 ENV TZ Europe/Berlin
-ENV PORT ${APP_PORT}
+ENV PORT 3000
 
-EXPOSE ${APP_PORT}
-
+EXPOSE 3000
 RUN mkdir -p app
 COPY view /app
 
 WORKDIR /app
-RUN rm -rf .env-local README.md && \
+RUN rm -rf README.md && \
 	ls -la
 
 RUN npm i

@@ -8,7 +8,7 @@ services:
     container_name: fb_mongodb
     user: "${USERID}:${GROUPID}"
     env_file: 
-      - ../api/.env-local
+      - ../api/.env.local
     ports:
       - "27017:27017"
     volumes:
@@ -34,7 +34,7 @@ services:
     container_name: fb_api
     user: "${USERID}:${GROUPID}"
     env_file: 
-      - ../api/.env-local
+      - ../api/.env.local
     depends_on:
       - mongodb
     ports:
@@ -56,7 +56,7 @@ services:
     container_name: fb_view
     user: "${USERID}:${GROUPID}"
     env_file: 
-      - ../view/.env-local
+      - ../view/.env.local
     depends_on:
       - api
     ports:

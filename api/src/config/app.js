@@ -7,7 +7,7 @@ module.exports = {
 	loadEnvironment: function () {
 		let envConfig = null;
 		if(process.env.NODE_ENV == 'local') { // LOCAL stage
-			envConfig = dotenv.parse(fs.readFileSync('.env-local'));
+			envConfig = dotenv.parse(fs.readFileSync('.env.local'));
 		}
 		else { // PROD stage ready
 			envConfig = dotenv.parse(fs.readFileSync('.env'));

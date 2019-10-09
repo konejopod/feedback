@@ -1,0 +1,51 @@
+version: '3.5'
+
+services:
+
+  # mongodb
+  mongodb:
+    image: gcr.io/subtle-champion-250712/mongodb:latest
+    container_name: fb_mongodb
+    restart: unless-stopped
+    networks:
+      - fb_network
+
+  # api app    
+  api:
+    image: gcr.io/subtle-champion-250712/api:latest
+    container_name: fb_api
+    depends_on:
+      - mongodb
+    ports:
+      - "5100:5100"
+    restart: unless-stopped
+    networks:
+     - fb_network
+
+  # view app
+  view:
+    image: gcr.io/subtle-champion-250712/view:latest
+    container_name: fb_view
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - fb_network
+  
+  # nginx
+  nginx:
+    image: gcr.io/subtle-champion-250712/nginx:latest
+    container_name: fb_nginx
+    depends_on:
+      - api
+      - view
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      - fb_network
+
+networks: 
+  fb_network:
