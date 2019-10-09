@@ -3,12 +3,6 @@ steps:
     id: 'Building docker api app image'
     env: 
       - 'APP_PORT=5100'
-    #dir: string
-    #waitFor: string
-    #entrypoint: string
-    #secretEnv: string
-    #volumes: object(Volume)
-    #timeout: string (Duration format)
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/api', '-f', './gcp-build/build/api-app.dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Building docker view app image'
