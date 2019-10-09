@@ -6,6 +6,11 @@ services:
   mongodb:
     image: gcr.io/subtle-champion-250712/mongodb:latest
     container_name: fb_mongodb
+    user: "${USERID}:${GROUPID}"
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo/data:/data/db:rw 
     restart: unless-stopped
     networks:
       - fb_network
@@ -14,6 +19,7 @@ services:
   api:
     image: gcr.io/subtle-champion-250712/api:latest
     container_name: fb_api
+    user: "${USERID}:${GROUPID}"
     depends_on:
       - mongodb
     ports:
@@ -26,6 +32,7 @@ services:
   view:
     image: gcr.io/subtle-champion-250712/view:latest
     container_name: fb_view
+    user: "${USERID}:${GROUPID}"
     depends_on:
       - api
     ports:
