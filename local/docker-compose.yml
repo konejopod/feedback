@@ -56,7 +56,7 @@ services:
     container_name: fb_view
     user: "${USERID}:${GROUPID}"
     env_file: 
-      - ../view/.env-local
+      - ../view/.env.local
     depends_on:
       - api
     ports:

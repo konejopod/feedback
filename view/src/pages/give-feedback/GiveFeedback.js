@@ -25,7 +25,6 @@ const GiveFeedback = ({
 
 }) => {
   const classes = useStyles();
-  console.debug(feedback.total)
   return (
     <div className={classes.content}>
       <form 
@@ -38,7 +37,7 @@ const GiveFeedback = ({
           required
           className={classes.textField}          
           type="text"
-          value={feedback.code}
+          value={feedback.code || ''}
           label={intl.formatMessage({id:'GiveFeedback.code'})}
           onChange={(evt) => onChange('code', evt.target.value)}
           />
