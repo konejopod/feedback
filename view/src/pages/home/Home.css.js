@@ -6,7 +6,7 @@ export default theme => ({
   form: {
     display: 'flex',
     flexDirection: 'column',
-    margin: `${theme.spacing(4)}px auto`,
+    margin: `${theme.spacing(6)}px auto`,
     maxWidth: '400px',
     textAlign: 'center',
   },
@@ -15,5 +15,12 @@ export default theme => ({
   },
   message: {
     marginTop: theme.spacing(2),
+  },
+  sliderBox: {
+    display: 'flex',
+    marginBottom: theme.spacing(2),
+  },
+  slider: {
+    marginLeft: theme.spacing(2),
   },
 });

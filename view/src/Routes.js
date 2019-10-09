@@ -13,7 +13,6 @@ const Routes = () => {
       <Route exact path='/' component={HomeContainer} />
       <Route path='/login' component={AuthContainer} />
       <Route path='/profile' component={ProfileContainer} />
-      <Route path='/new-feedback' component={NewFeedbackContainer} />
       <Route path='/reply-feedback/:feedbackCode' component={ReplyFeedbackContainer} />
     </Switch>
   );

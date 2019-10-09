@@ -49,5 +49,11 @@
 
   "UserMenu.profile": "Profile",
   "UserMenu.logout": "Logout",
-  "UserMenu.login": "Login"
+  "UserMenu.login": "Login",
+
+  "Feedback.field1": "Competencias 1",
+  "Feedback.field2": "Competencias 2",
+  "Feedback.field3": "Competencias 3",
+  "Feedback.field4": "Competencias 4",
+  "Feedback.field5": "Competencias 5"
 }

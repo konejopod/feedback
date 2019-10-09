@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const Feedback = require('../models/feedback');
 
 module.exports = {

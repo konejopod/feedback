@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, } from '@material-ui/core';
+import { makeStyles, Slider, } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 
 import { 
@@ -46,6 +46,74 @@ const Home = ({
           className={classes.textField}
           fullWidth
         />
+        <Typography className={classes.sliderBox}>
+          Max.: 0 / 5
+        </Typography>
+        <Typography className={classes.sliderBox}>
+          {intl.formatMessage({id:'Feedback.field1'})}
+          <Slider
+            id="field1"
+            classes={{root: classes.slider}}
+            defaultValue="0"
+            step={1}
+            max={5}
+            valueLabelDisplay={true}
+            marks
+            onChange={onChange}
+          />
+        </Typography>
+        <Typography className={classes.sliderBox}>
+          {intl.formatMessage({id:'Feedback.field2'})}
+          <Slider
+            id="field2"
+            classes={{root: classes.slider}}
+            defaultValue="0"
+            step={1}
+            max={5}
+            valueLabelDisplay={true}
+            marks
+            onChange={onChange}
+          />
+        </Typography>
+        <Typography className={classes.sliderBox}>
+          {intl.formatMessage({id:'Feedback.field3'})}
+          <Slider
+            id="field3"
+            classes={{root: classes.slider}}
+            defaultValue="0"
+            step={1}
+            max={5}
+            valueLabelDisplay={true}
+            marks
+            onChange={onChange}
+          />
+        </Typography>
+        <Typography className={classes.sliderBox}>
+          {intl.formatMessage({id:'Feedback.field4'})}
+          <Slider
+            id="field4"
+            classes={{root: classes.slider}}
+            defaultValue="0"
+            step={1}
+            max={5}
+            valueLabelDisplay={true}
+            marks
+            onChange={onChange}
+          />
+        </Typography>
+        <Typography className={classes.sliderBox}>
+          {intl.formatMessage({id:'Feedback.field5'})}
+          <Slider
+            id="field5"
+            classes={{root: classes.slider}}
+            defaultValue="0"
+            step={1}
+            max={5}
+            valueLabelDisplay={true}
+            marks
+            onChange={onChange}
+          />
+        </Typography>
         <Button 
           type="submit" 
           color="primary"

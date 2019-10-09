@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import constants from '../constants';
 
 export default class AuthService {
@@ -34,31 +36,24 @@ export default class AuthService {
     }
   }
     
-  authenticate(username, password) {
-    if (process.env.NODE_ENV !== 'production') {
-      let mockUser = require('../etc/mock-user.json')
-      if (username === mockUser.username || username === mockUser.email) { // TODO && password === mockUser.password) {
-        return this._parseUser(mockUser); 
-      }
-    } else {
-      // TODO Change to a real auth, ...
-      let mockUser = require('../etc/mock-user.json')
-      if (username === mockUser.username || username === mockUser.email) { // TODO && password === mockUser.password) {
-        return this._parseUser(mockUser); 
-      }
-    }
-    throw new Error(constants.ERROR_USER_UNAUTHORIZED);
+  async authenticate(username, password) {
+    const response = await axios.post('/api/auth/signIn', { username, password });
+    const { session } = response.data;
+    if (!session.content.emailVerified) throw new Error(constants.ERROR_USER_NOT_CONFIRMED);
+    return session;
   }
   
-  signUp(username, password, email, phoneNumber) {
-    // TODO Change to a real sign up, ...
+  async signUp(username, password, email, phoneNumber) {
     const newUser = {
       username: username,
       password: password,
       email: email || username,
       phone_number: phoneNumber,
+      // TODO Make emailVerified dinamic
+      emailVerified: true,
     };
-    return this._parseUser(newUser); 
+    const user = await axios.post('/api/auth/signUp', newUser);
+    return user; 
   }
 
   confirmAccount(username, code) {
