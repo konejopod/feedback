@@ -11,5 +11,11 @@ export default theme => ({
   },
   badge: {
     backgroundColor: theme.palette.accent.dark,
-  }
+  },
+  mainIcon: {
+    marginRight: -theme.spacing(2)
+  },
+  menuIcon: {
+    marginRight: theme.spacing(1)
+  },
 });

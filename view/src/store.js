@@ -6,6 +6,7 @@ const defaultState = {
   user: null, 
   loading: false, 
   language: 'en-US',
+  feedback: {},
 };
 
 export const redux = (state, action) => {
@@ -18,6 +19,8 @@ export const redux = (state, action) => {
       return { ...state, loading: action.loading };
     case constants.CHANGE_LANGUAGE:
       return { ...state, language: action.language };
+    case constants.SAVE_FEEDBACK:
+      return { ...state, feedback: action.feedback };
     default:
       return state;
   }

@@ -21,19 +21,11 @@ export default class AuthService {
     };
   }
 
-  authorize(callback) {    
-    if (process.env.NODE_ENV !== 'production') {
-      let mockUser = require('../etc/mock-user.json')
-      callback(true, { 
-        content: this._parseUser(mockUser), 
-        message: `Signed in user: ${mockUser.username}.` 
-      });
-    } else {
-      // TODO Change to a real auth, ...
-      callback(false, { 
-        message: 'Not authorized.' 
-      });
-    }
+  authorize(callback) {
+    // TODO To implement authorization with token
+    callback(false, { 
+      message: 'Not authorized.' 
+    });
   }
     
   async authenticate(username, password) {
