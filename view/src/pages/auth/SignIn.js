@@ -75,9 +75,9 @@ const SignIn = ({
           </Button>
         </DialogActions>
         <DialogActions className={classes.buttonBox}>
-          <Button type="button" onClick={onReset} className={classes.textButton}>
+          {/* <Button type="button" onClick={onReset} className={classes.textButton}>
             {intl.formatMessage({id:'Auth.resetBtn'})}
-          </Button>
+          </Button> */}
           <Button type="button" onClick={onSignUp} className={classes.textButton}>
             {intl.formatMessage({id:'Auth.signUpBtn'})}
           </Button>

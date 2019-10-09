@@ -6,11 +6,13 @@ export default theme => ({
   }, 
   form: {
     padding: theme.spacing(2),
+    margin: '0 auto',
     maxWidth: '400px',
     textAlign: 'left',
   },
   textField: {
     marginBottom: theme.spacing(2),
+    marginRight: theme.spacing(2),
   },
   message: {
     marginTop: theme.spacing(2),
@@ -20,16 +22,15 @@ export default theme => ({
   },
   slider: {
     margin: theme.spacing(1),
-    maxWidth: '80%',
+    width: '90%',
   }, 
   actionButton: {
     marginTop: theme.spacing(2),
   },
   stars: {
-    // border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: '10px',
-    color: theme.palette.secondary.dark
-,    display: 'flex',
+    color: theme.palette.secondary.dark,
+    display: 'flex',
     justifyContent: 'space-around',
     margin: '0 auto',
     padding: theme.spacing(1),

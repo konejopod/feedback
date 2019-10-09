@@ -49,6 +49,7 @@
   "UserMenu.login": "Login",
   
   "GiveFeedback.code": "Feedback code",
+  "GiveFeedback.username": "Your name (optional)",
   "GiveFeedback.codeRequiredMsg": "Please, inform the feedback code.",
   "GiveFeedback.sendBtn": "Send",
 

@@ -41,20 +41,25 @@ const GiveFeedback = ({
           value={feedback.code}
           label={intl.formatMessage({id:'GiveFeedback.code'})}
           onChange={(evt) => onChange('code', evt.target.value)}
+          />
+        <TextField
+          className={classes.textField}          
+          type="text"
+          value={feedback.username || ''}
+          label={intl.formatMessage({id:'GiveFeedback.username'})}
+          onChange={(evt) => onChange('username', evt.target.value)}
         />
         <div className={classes.stars}>
-          { [...Array(5).keys()].map(v => <Star color={feedback.total > v ? 'disabled' : ''} />) }
+          { [...Array(5).keys()].map(v => <Star key={v} color={feedback.total > v ? 'disabled' : 'inherit'} />) }
         </div>
         <Typography className={classes.label}>
           {intl.formatMessage({id:'Feedback.field1'})}
         </Typography>
         <Slider
           classes={{root: classes.slider}}
-          defaultValue="0"
           step={1}
           max={5}
           value={feedback['field1'] || 0}
-          valueLabelDisplay={true}
           marks
           onChange={(evt, value) => onChange('field1', value)}
         />
@@ -63,11 +68,9 @@ const GiveFeedback = ({
         </Typography>
         <Slider
           classes={{root: classes.slider}}
-          defaultValue="0"
           step={1}
           max={5}
           value={feedback['field2'] || 0}
-          valueLabelDisplay={true}
           marks
           onChange={(evt, value) => onChange('field2', value)}
         />
@@ -76,11 +79,9 @@ const GiveFeedback = ({
         </Typography>
         <Slider
           classes={{root: classes.slider}}
-          defaultValue="0"
           step={1}
           max={5}
           value={feedback['field3'] || 0}
-          valueLabelDisplay={true}
           marks
           onChange={(evt, value) => onChange('field3', value)}
         />
@@ -89,11 +90,9 @@ const GiveFeedback = ({
         </Typography>
         <Slider
           classes={{root: classes.slider}}
-          defaultValue="0"
           step={1}
           max={5}
           value={feedback['field4'] || 0}
-          valueLabelDisplay={true}
           marks
           onChange={(evt, value) => onChange('field4', value)}
         />
@@ -102,11 +101,9 @@ const GiveFeedback = ({
         </Typography>
         <Slider
           classes={{root: classes.slider}}
-          defaultValue="0"
           step={1}
           max={5}
           value={feedback['field5'] || 0}
-          valueLabelDisplay={true}
           marks
           onChange={(evt, value) => onChange('field5', value)}
         />

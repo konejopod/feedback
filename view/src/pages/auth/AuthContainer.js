@@ -149,7 +149,7 @@ class AuthContainer extends Component {
       this.setState({
         ...this.state, 
         signUpOpen: false,
-        verifyOpen: true, 
+        // verifyOpen: true, 
         message: { 
           error: false, 
           text: intl.formatMessage({id:'Auth.verifyMsg'}) 

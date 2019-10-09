@@ -25,12 +25,12 @@ const Home = ({
         {intl.formatMessage({id:'Home.greetings'})}
       </Typography>
       <GiveFeedbackContainer />
-      <Link component={RouterLink} to = "/request-feedback">
+      {/* <Link component={RouterLink} to = "/request-feedback">
         {intl.formatMessage({id:'Home.requestFeedback'})}
       </Link>
       <Typography>
         {!user && intl.formatMessage({id:'Auth.signInRequired'})}
-      </Typography>
+      </Typography> */}
     </div>
   );
 }
