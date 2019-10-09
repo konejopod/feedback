@@ -1,4 +1,5 @@
 import axios from "axios";
+// import { bcrypt } from "bcrypt";
 
 import constants from '../constants';
 
@@ -21,6 +22,13 @@ export default class AuthService {
     };
   }
 
+  _encryptPassword(password) {
+    // TODO bcrypt -> Module not found: Can't resolve 'aws-sdk' in '/app/node_modules/node-pre-gyp/lib'
+    // const salt = bcrypt.genSaltSync(7);
+    // return bcrypt.hashSync(password, salt);
+    return password
+  }
+
   authorize(callback) {
     // TODO To implement authorization with token
     callback(false, { 
@@ -29,16 +37,20 @@ export default class AuthService {
   }
     
   async authenticate(username, password) {
-    const response = await axios.post('/api/auth/signIn', { username, password });
+
+    const response = await axios.post('/api/auth/signIn', { 
+      username, 
+      password: this._encryptPassword(password), 
+    });
     const { session } = response.data;
     if (!session.content.emailVerified) throw new Error(constants.ERROR_USER_NOT_CONFIRMED);
     return session;
   }
   
-  async signUp(username, password, email, phoneNumber) {
+  async signUp(username, password, email, phoneNumber) {        
     const newUser = {
       username: username,
-      password: password,
+      password: this._encryptPassword(password),
       email: email || username,
       phone_number: phoneNumber,
       // TODO Make emailVerified dinamic

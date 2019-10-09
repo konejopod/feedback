@@ -90,7 +90,7 @@ class AuthContainer extends Component {
     if (!this._validate(['username', 'password'])) return;
     dispatch({ type: constants.SET_LOADER, loading: true });
     try {
-      const user = await this.authService.authenticate(this.state.username, this.state.password);
+      const user = await this.authService.authenticate(this.state.username, this.state.password);      
       dispatch({ type: constants.LOGIN, user });
       history.push('/');
     } catch (error) {
@@ -142,8 +142,8 @@ class AuthContainer extends Component {
     const { dispatch, intl } = this.props;
     if (!this._validate(['username', 'password'])) return;
     dispatch({ type: constants.SET_LOADER, loading: true });
-    try {      
-      const user = this.authService.signUp(this.state.username, this.state.password, this.state.email, this.state.phoneNumber);
+    try {
+      const user = this.authService.signUp(this.state.username, this.state.password, this.state.email, this.state.phoneNumber);      
       // TODO Temporary
       dispatch({ type: constants.LOGIN, user });
       this.setState({

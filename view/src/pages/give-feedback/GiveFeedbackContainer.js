@@ -77,7 +77,7 @@ class GiveFeedbackContainer extends React.Component {
   }
   
   render() {
-    const { intl, state } = this.props;
+    const { intl } = this.props;
     return (
       <GiveFeedback
         intl={intl}

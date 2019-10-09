@@ -48,14 +48,19 @@
   "UserMenu.logout": "Logout",
   "UserMenu.login": "Login",
   
+  "Feedback.field1": "Competence 1",
+  "Feedback.field2": "Competence 2",
+  "Feedback.field3": "Competence 3",
+  "Feedback.field4": "Competence 4",
+  "Feedback.field5": "Competence 5",
+  
   "GiveFeedback.code": "Feedback code",
   "GiveFeedback.username": "Your name (optional)",
   "GiveFeedback.codeRequiredMsg": "Please, inform the feedback code.",
   "GiveFeedback.sendBtn": "Send",
 
-  "Feedback.field1": "Nonon no nononon non 1",
-  "Feedback.field2": "Field 2",
-  "Feedback.field3": "Field 3",
-  "Feedback.field4": "Field 4",
-  "Feedback.field5": "Field 5"
+  "FeedbackResult.greetings": "Thank you for your feedback!",
+  "FeedbackResult.code": "Feedback code",
+  "FeedbackResult.yourFeedback": "Your feedback",
+  "FeedbackResult.summary": "Summary"
 }
