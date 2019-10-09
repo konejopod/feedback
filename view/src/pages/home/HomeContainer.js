@@ -25,6 +25,7 @@ class HomeContainer extends React.Component {
   }
 
   handleChange = event => {
+    console.debug(event)
     this.setState({ 
       ...this.state, 
       [event.target.id]: event.target.value, 
