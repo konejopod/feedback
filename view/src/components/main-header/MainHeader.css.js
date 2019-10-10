@@ -1,6 +1,11 @@
 export default theme => ({
   root: {
     flexGrow: 1,
+    left: 0,
+    position: 'fixed',
+    right: 0,
+    top: 0,
+    zIndex: 1000,
   },
   flex: {
     flex: 1,

@@ -4,6 +4,10 @@ export default theme => ({
     maxWidth: theme.constraints.maxWidth,
   },
   content: {
-    padding: theme.spacing(1),
+    padding: `60px ${theme.spacing(1)}px`,
+    
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: '70px',
+    }
   }
 });
