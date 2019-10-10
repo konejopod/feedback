@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { injectIntl } from 'react-intl';
 
 import FeedbackResult from './FeedbackResult';
+import FeedbackService from '../../services/FeedbackService';
 
 const propTypes = {
   state: PropTypes.object.isRequired,
@@ -15,14 +16,39 @@ const connection = connect(
 );
 
 class FeedbackResultContainer extends React.Component {
+
+  constructor(props) {
+    super(props);
+    // TODO Validate session
+    this.feedbackService = FeedbackService.getInstance(props.state.user);
+    this.state = {
+      code: props.match.params.feedbackCode,
+      feedback: {},
+      message: {},
+    }
+  }
   
+  componentDidMount() {
+    this._fetchFeedback();
+  }
+  
+  async _fetchFeedback() {
+    const { match } = this.props;
+    try {
+      const feedback = await this.feedbackService.getFeedbackByCode(match.params.feedbackCode);
+      this.setState({ feedback });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+    
   render() {
-    const { intl, state, match } = this.props;
+    const { intl, state } = this.props;
     return (
       <FeedbackResult
         intl={intl}
-        code={match.params.feedbackCode}
-        feedback={state.feedback}
+        feedback={this.state.feedback}
+        myFeedback={state.feedback}
       />
     );
   }

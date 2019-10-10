@@ -42,7 +42,8 @@ const GiveFeedback = ({
           onChange={(evt) => onChange('code', evt.target.value)}
           />
         <TextField
-          className={classes.textField}          
+          className={classes.textField}  
+          fullWidth        
           type="text"
           value={feedback.username || ''}
           label={intl.formatMessage({id:'GiveFeedback.username'})}

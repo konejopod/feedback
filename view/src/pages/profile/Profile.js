@@ -13,6 +13,15 @@ const Profile = ({ intl }) => {
       Profile
       <br/>
       <br/>
+      Roadmap:
+      <ul>
+        <li>Given and received feedbacks</li>
+        <li>Graph showing user progress in time</li>
+        <li>??</li>
+        <li>??</li>
+      </ul>      
+      <br/>
+      <br/>
       <Link component={RouterLink} to="/">
         Home
       </Link>

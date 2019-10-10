@@ -30,5 +30,15 @@ export default class FeedbackService {
     const parsedFeedback = this._parseFeedback(feedback);
     const response = await axios.post('/api/feedback', parsedFeedback);
     return response.data;
+  } 
+
+  async getFeedbackById(feedbackId) {
+    const response = await axios.get(`/api/feedback/${feedbackId}`);
+    return response.data;
+  }  
+
+  async getFeedbackByCode(feedbackCode) {
+    const response = await axios.get(`/api/feedback/code/${feedbackCode}`);
+    return response.data.feedback.content;
   }  
 }

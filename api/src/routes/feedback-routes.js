@@ -26,6 +26,30 @@ module.exports = (app) => {
 		}
 	});
 
+	app.get('/api/feedback/:id', async (req, res) => {
+		try {
+			const { id } = req.params;
+			console.debug(`Received request: [GET] /api/feedback/${id}`);
+			const feedback = await controller.findOne(id);
+			return res.status(HttpStatus.OK).send({error: false, feedback});
+		} catch (error) {
+			console.error('Internal server error: \n', error);
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({error: true, error});
+		}
+	});
+
+	app.get('/api/feedback/code/:code', async (req, res) => {
+		try {
+			const { code } = req.params;
+			console.debug(`Received request: [GET] /api/feedback/${code}`);
+			const feedback = await controller.findOneByCode(code);
+			return res.status(HttpStatus.OK).send({error: false, feedback});
+		} catch (error) {
+			console.error('Internal server error: \n', error);
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({error: true, error});
+		}
+	});
+
 	app.put('/api/feedback/:id', async (req, res) => {
 		try {
 			const { id } = req.params;
