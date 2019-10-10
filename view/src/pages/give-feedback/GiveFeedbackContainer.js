@@ -50,7 +50,7 @@ class GiveFeedbackContainer extends React.Component {
     constants.FEEDBACK_FIELDS.forEach(field => {
       total += field === id ? value : this.state[field] || 0;
     });
-    if (total > 5) return;
+    if (total > constants.MAX_STARS) return;
     this.setState({ 
       ...this.state, 
       total,
@@ -59,12 +59,14 @@ class GiveFeedbackContainer extends React.Component {
     });
   }
 
-  handleConfirm = event => {
+  handleConfirm = async event => {
     event.preventDefault();
-    const { history, dispatch } = this.props;
+    const { history, dispatch, state } = this.props;
     if (!this._validateForm()) return;
+    console.debug('confirm', state.user)
     const feedback = {
-      code: this.state.code,
+      fromColleague: state.user ? state.user.content.username : '',
+      toColleague: this.state.toColleague || '',
       field1: this.state.field1 || 0,
       field2: this.state.field2 || 0,
       field3: this.state.field3 || 0,
@@ -72,8 +74,18 @@ class GiveFeedbackContainer extends React.Component {
       field5: this.state.field5 || 0,
     }
     dispatch({ type: constants.SAVE_FEEDBACK, feedback });
-    this.feedbackService.giveFeedback(feedback);
-    history.push(`/feedback-result/${this.state.code}`);
+    const result = await this.feedbackService.giveFeedbackByCode(this.state.code, feedback);
+    if (result.error) {
+      this.setState({ 
+        ...this.state, 
+        message: { 
+          error: true,
+          text: this.props.intl.formatMessage({id:'GiveFeedback.saveFailedMsg'}),
+        }
+      });
+    } else {
+      history.push(`/feedback-result/${this.state.code}`);
+    }
   }
   
   render() {

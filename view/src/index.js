@@ -8,6 +8,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { SnackbarProvider } from 'notistack';
 import moment from 'moment';
 import MomentUtils from '@date-io/moment';
+import throttle from 'lodash/throttle';
 
 import App from './App';
 import './index.css';
@@ -16,6 +17,7 @@ import Theme from './index.theme';
 import Routes from './Routes';
 import constants from './constants';
 import reduxStore from './store';
+import { saveLocalStorage } from './localStorage';
 
 const intl = newLanguage => {
 
@@ -76,6 +78,7 @@ const render = () => {
 };
 
 store.subscribe(render);
+store.subscribe(throttle(() => saveLocalStorage('state', store.getState()), 3000));
 render();
 
 // If you want your app to work offline and load faster, you can change

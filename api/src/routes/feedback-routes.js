@@ -62,6 +62,18 @@ module.exports = (app) => {
 		}
 	});
 
+	app.put('/api/feedback/code/:code', async (req, res) => {
+		try {
+			const { code } = req.params;
+			console.debug(`Received request: [PUT] /api/feedback/code/${code}`, req.body);
+			const result = await controller.updateByCode(code, req.body);
+			return res.status(HttpStatus.ACCEPTED).send({error: false, result});
+		} catch (error) {
+			console.error('Internal server error: \n', error);
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({error: true, error});
+		}
+	});
+
 	app.delete('/api/feedback/:id', async (req, res) => {
 		try {
 			const { id } = req.params;

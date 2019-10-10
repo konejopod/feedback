@@ -25,7 +25,7 @@ const _buildSummary = feedback => {
 module.exports = {
 
   create: content => { 
-    const model = new Feedback(content);
+    var model = new Feedback(content);
 		return model.save().then((result, error) => {
       if (error) return Promise.reject({ message: error });
       return Promise.resolve({ message: 'Feedback created', content: result });
@@ -50,6 +50,7 @@ module.exports = {
   findOneByCode: code => {
 		return Feedback.findOne({ ticket: code }).then((result, error) => {
       if (error) return Promise.reject({ message: error });
+      if (!result) return Promise.reject({ message: `Feedback code ${code} not found` });
       const feedback = _buildSummary(result);
       return Promise.resolve({ message: 'Feedback found', content: feedback });
     });
@@ -60,6 +61,34 @@ module.exports = {
       if (error) return Promise.reject({ message: error });
       return Promise.resolve({ message: 'Feedback updated', content: result });
     });
+  },
+
+  updateByCode: (code, content) => {
+    Feedback.findOne({ ticket: code }).then((existingFeedback, error) => {
+      if (error) return Promise.reject({ message: error });
+      var feedback;
+      if (!existingFeedback) {
+        console.debug('[updateByCode]', `Feedback code ${code} not found, creating a new one`);
+        feedback =  new Feedback({ ticket: code, ...content });
+        return feedback.save().then((result, error) => {
+          if (error) return Promise.reject({ message: error });
+          return Promise.resolve({ message: 'Feedback saved', content: result });
+        });
+      } else {
+        console.debug('[updateByCode]', `Feedback code ${code} found, updating`);
+        Feedback.findByIdAndUpdate(
+          { _id: existingFeedback._id }, 
+          { $push: { feedbacks: content.feedbacks[0] } 
+        }).then((result, error) => {
+          if (error) return Promise.reject({ message: error });
+          return Promise.resolve({ message: 'Feedback updated', content: result });
+        });
+      }
+    });
+		// return Feedback.findByIdAndUpdate(id, content).then((result, error) => {
+    //   if (error) return Promise.reject({ message: error });
+    //   return Promise.resolve({ message: 'Feedback updated', content: result });
+    // });
   },
 
   delete: id => {

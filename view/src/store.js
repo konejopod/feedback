@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 
 import constants from "./constants";
+import { loadLocalStorage } from "./localStorage";
 
 const defaultState = {
   user: null, 
@@ -26,5 +27,9 @@ export const redux = (state, action) => {
   }
 };
 
-const reduxStore = (initialState) => createStore(redux, { ...defaultState, ...initialState });
+const localState = loadLocalStorage('state');
+const reduxStore = (initialState) => {
+  return createStore(redux, { ...defaultState, ...initialState, ...localState });
+};
+
 export default reduxStore;

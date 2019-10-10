@@ -12,6 +12,7 @@ import {
 } from 'mdi-material-ui'
 
 import styles from './GiveFeedback.css';
+import constants from '../../constants';
 
 const useStyles = makeStyles(styles);
 
@@ -45,12 +46,12 @@ const GiveFeedback = ({
           className={classes.textField}  
           fullWidth        
           type="text"
-          value={feedback.username || ''}
-          label={intl.formatMessage({id:'GiveFeedback.username'})}
-          onChange={(evt) => onChange('username', evt.target.value)}
+          value={feedback.toColleague || ''}
+          label={intl.formatMessage({id:'GiveFeedback.toColleague'})}
+          onChange={(evt) => onChange('toColleague', evt.target.value)}
         />
         <div className={classes.stars}>
-          { [...Array(5).keys()].reverse().map(v => <Star key={v} color={feedback.total > v ? 'disabled' : 'inherit'} />) }
+          {/* { [...Array(constants.MAX_STARS).keys()].reverse().map(v => <Star key={v} color={feedback.total > v ? 'disabled' : 'inherit'} />) } */}
         </div>
         <Typography className={classes.label}>
           {intl.formatMessage({id:'Feedback.field1'})}
