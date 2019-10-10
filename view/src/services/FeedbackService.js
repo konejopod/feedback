@@ -15,7 +15,8 @@ export default class FeedbackService {
       ticket: feedback.code,
       feedbacks: [
         {
-          username: this.user,
+          fromColleague: feedback.fromColleague,
+          toColleague: feedback.toColleague,
           field1: feedback.field1,
           field2: feedback.field2,
           field3: feedback.field3,
@@ -29,6 +30,12 @@ export default class FeedbackService {
   async giveFeedback(feedback) {
     const parsedFeedback = this._parseFeedback(feedback);
     const response = await axios.post('/api/feedback', parsedFeedback);
+    return response.data;
+  } 
+
+  async giveFeedbackByCode(code, feedback) {
+    const parsedFeedback = this._parseFeedback(feedback);
+    const response = await axios.put(`/api/feedback/code/${code}`, parsedFeedback);
     return response.data;
   } 
 

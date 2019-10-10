@@ -44,6 +44,7 @@ class FeedbackResultContainer extends React.Component {
     
   render() {
     const { intl, state } = this.props;
+    console.debug('result', state)
     return (
       <FeedbackResult
         intl={intl}

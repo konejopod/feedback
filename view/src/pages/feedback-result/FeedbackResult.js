@@ -84,19 +84,44 @@ const FeedbackResult = ({
             </div>
             <div className={classes.values}>
               <Typography className={classes.label}>
-                {feedback.summary.field1Count ? feedback.summary.field1 / feedback.summary.field1Count : 0}
+                {
+                  intl.formatNumber(
+                    feedback.summary.field1Count ? feedback.summary.field1 / feedback.summary.field1Count : 0, 
+                    {maximumFractionDigits: 2}
+                  )
+                }
               </Typography>
               <Typography className={classes.label}>
-                {feedback.summary.field2Count ? feedback.summary.field2 / feedback.summary.field2Count : 0}
+                {
+                  intl.formatNumber(
+                    feedback.summary.field2Count ? feedback.summary.field2 / feedback.summary.field2Count : 0, 
+                    {maximumFractionDigits: 2}
+                  )
+                }
               </Typography>
               <Typography className={classes.label}>
-                {feedback.summary.field3Count ? feedback.summary.field3 / feedback.summary.field3Count : 0}
+                {
+                  intl.formatNumber(
+                    feedback.summary.field3Count ? feedback.summary.field3 / feedback.summary.field3Count : 0, 
+                    {maximumFractionDigits: 2}
+                  )
+                }
               </Typography>
               <Typography className={classes.label}>
-                {feedback.summary.field4Count ? feedback.summary.field4 / feedback.summary.field4Count : 0}
+                {
+                  intl.formatNumber(
+                    feedback.summary.field4Count ? feedback.summary.field4 / feedback.summary.field4Count : 0, 
+                    {maximumFractionDigits: 2}
+                  )
+                }
               </Typography>
               <Typography className={classes.label}>
-                {feedback.summary.field5Count ? feedback.summary.field5 / feedback.summary.field5Count : 0}
+                {
+                  intl.formatNumber(
+                    feedback.summary.field5Count ? feedback.summary.field5 / feedback.summary.field5Count : 0, 
+                    {maximumFractionDigits: 2}
+                  )
+                }
               </Typography>
             </div>
           </div>

@@ -7,13 +7,14 @@ const constants = {
   LOGOUT: 'LOGOUT',
   SET_LOADER: 'SET_LOADER',
   CHANGE_LANGUAGE: 'CHANGE_LANGUAGE',
+  SAVE_FEEDBACK: 'SAVE_FEEDBACK',
 
   // # ERROR CODES
   ERROR_USER_UNAUTHORIZED: 'UserUnautohrizedException',
   ERROR_USER_NOT_CONFIRMED: 'UserNotConfirmedException',
 
   // # FEEDBACK
-  SAVE_FEEDBACK: 'SAVE_FEEDBACK',
+  MAX_STARS: 25,
   FEEDBACK_FIELDS: [ 
     "field1", 
     "field2", 

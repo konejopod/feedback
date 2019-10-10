@@ -55,9 +55,10 @@
   "Feedback.field5": "Motivation",
   
   "GiveFeedback.code": "Jira ticket",
-  "GiveFeedback.username": "Colleague name (optional)",
+  "GiveFeedback.toColleague": "Colleague name (optional)",
   "GiveFeedback.codeRequiredMsg": "Please, inform the Jira ticket",
   "GiveFeedback.sendBtn": "Send",
+  "GiveFeedback.saveFailedMsg": "There was an error while saving you feedback, please try again.",
 
   "FeedbackResult.greetings": "Thank you for your feedback",
   "FeedbackResult.code": "Jira ticket",

@@ -30,10 +30,10 @@ export default theme => ({
   stars: {
     borderRadius: '10px',
     color: theme.palette.secondary.dark,
-    display: 'flex',
     justifyContent: 'space-around',
     margin: '0 auto',
     padding: theme.spacing(1),
+    textAlign: 'center',
     width: '50%',
   }
 });

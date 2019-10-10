@@ -6,7 +6,8 @@ const feedbackSchema = new Schema({
   ticket: String,
   feedbacks: [
     {
-      username: String,
+      fromColleague: String,
+      toColleague: String,
       field1: Number,
       field2: Number,
       field3: Number,
@@ -14,6 +15,6 @@ const feedbackSchema = new Schema({
       field5: Number,
     },
   ], 
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Feedback', feedbackSchema);
