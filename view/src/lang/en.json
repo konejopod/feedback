@@ -3,7 +3,7 @@
   
   "App.name": "Feedback App",
   
-  "Home.greetings": "Wellcome to the Feedback App!",  
+  "Home.greetings": "Welcome to the Feedback App",  
   "Home.requestFeedback": "Create a new feedback request",
 
   "Profile.greetings": "Profile page",
@@ -17,7 +17,7 @@
   "Auth.username": "Type you username or e-mail",
   "Auth.password": "Password (min. 6 digits and 1 symbol)",
   "Auth.newPassword": "Type the new password",
-  "Auth.phoneNumber": "Phone (opcional)",
+  "Auth.phoneNumber": "Phone (optional)",
   "Auth.code": "Code (check your inbox)",
   "Auth.sendBtn": "Send",
   "Auth.backBtn": "Back to login",
@@ -54,13 +54,13 @@
   "Feedback.field4": "Competence 4",
   "Feedback.field5": "Competence 5",
   
-  "GiveFeedback.code": "Feedback code",
-  "GiveFeedback.username": "Your name (optional)",
-  "GiveFeedback.codeRequiredMsg": "Please, inform the feedback code.",
+  "GiveFeedback.code": "Jira ticket",
+  "GiveFeedback.username": "Colleague name (optional)",
+  "GiveFeedback.codeRequiredMsg": "Please, inform the Jira ticket",
   "GiveFeedback.sendBtn": "Send",
 
-  "FeedbackResult.greetings": "Thank you for your feedback!",
-  "FeedbackResult.code": "Feedback code",
+  "FeedbackResult.greetings": "Thank you for your feedback",
+  "FeedbackResult.code": "Jira ticket",
   "FeedbackResult.yourFeedback": "Your feedback",
   "FeedbackResult.summary": "Summary"
 }
